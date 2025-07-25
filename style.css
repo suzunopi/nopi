@@ -263,7 +263,7 @@ button:hover {
 }
 
 .song-carousel .song {
-  flex: 0 0 50vw;
+  flex: 0 0 30vw;
   scroll-snap-align: center;
   padding: 1rem;
   box-sizing: border-box;
