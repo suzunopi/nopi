@@ -34,6 +34,9 @@ function moveButton() {
 
   spawnHeart(x + btn.offsetWidth / 2, y + btn.offsetHeight / 2);
 
+  function moveButton() {
+    clickSound.play();
+  }
   setTimeout(() => {
     btn.style.animation = '';
   }, 300);
@@ -67,12 +70,15 @@ btn.addEventListener('click', moveButton);
 // 💕 PWA install functionality
 let deferredPrompt;
 
+const clickSound = new Audio('/chomp.wav');
+clickSound.volume = 0.5; // optional, set volume to taste :3
+
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   document.getElementById('install-btn').style.display = 'inline-block';
 });
-
+  
 function installPWA() {
   if (deferredPrompt) {
     deferredPrompt.prompt();
