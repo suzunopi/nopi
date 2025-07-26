@@ -383,13 +383,14 @@ button:hover {
 
 /* text */
 #now-playing {
+  font-family: 'Lexend', sans-serif
   font-size: 14px;
   color: #333;
 }
 
 /* slider */
 #volume-slider {
-  width: 120px;
+  width: 300px;
   margin-top: 6px;
 }
 
