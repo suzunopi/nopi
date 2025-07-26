@@ -33,10 +33,8 @@ function moveButton() {
   btn.style.animation = `intense-shake 0.3s ${shakeLevel}`;
 
   spawnHeart(x + btn.offsetWidth / 2, y + btn.offsetHeight / 2);
-
-  function moveButton() {
-    clickSound.play();
-  }
+  clickSound.play();
+  
   setTimeout(() => {
     btn.style.animation = '';
   }, 300);
