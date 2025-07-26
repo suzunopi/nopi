@@ -15,6 +15,41 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+
+<div id="music-player" style="position: fixed; bottom: 20px; left: 20px; background: rgba(255, 255, 255, 0.8); padding: 12px 16px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); font-family: 'Arial', sans-serif; display: flex; align-items: center; gap: 12px;">
+  <span id="now-playing">🎵 now playing: hopes and dreams (music box ver.)</span>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" />
+</div>
+
+<audio id="bgm" src="hopes-and-dreams-music-box.mp3" loop autoplay></audio>
+
+<script>
+  const bgm = document.getElementById("bgm");
+  const slider = document.getElementById("volume-slider");
+
+  // sync slider with volume
+  bgm.volume = slider.value;
+
+  slider.addEventListener("input", () => {
+    bgm.volume = slider.value;
+  });
+
+  // optional: fade in audio on load
+  window.addEventListener("DOMContentLoaded", () => {
+    bgm.volume = 0;
+    const targetVolume = slider.value;
+    let vol = 0;
+    const interval = setInterval(() => {
+      vol += 0.01;
+      if (vol >= targetVolume) {
+        vol = targetVolume;
+        clearInterval(interval);
+      }
+      bgm.volume = vol;
+    }, 50);
+  });
+</script>
+
   <div class="container">
     <h1>happy monthsary, nopi :3</h1>
     <p>this is a lil website i made just for you <3</p>
