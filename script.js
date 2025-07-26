@@ -89,3 +89,38 @@ function installPWA() {
     });
   }
 }
+
+const toggleBtn = document.getElementById("bgm-toggle");
+const player = document.getElementById("music-player");
+const bgm = document.getElementById("bgm");
+const slider = document.getElementById("volume-slider");
+
+let isPlayerVisible = false;
+
+// toggle display
+toggleBtn.addEventListener("click", () => {
+  isPlayerVisible = !isPlayerVisible;
+  player.style.display = isPlayerVisible ? "flex" : "none";
+});
+
+// volume control
+bgm.volume = slider.value;
+slider.addEventListener("input", () => {
+  bgm.volume = slider.value;
+});
+
+// fade in audio on page load
+window.addEventListener("DOMContentLoaded", () => {
+  bgm.volume = 0;
+  const targetVolume = parseFloat(slider.value);
+  let vol = 0;
+  const fade = setInterval(() => {
+    vol += 0.01;
+    if (vol >= targetVolume) {
+      vol = targetVolume;
+      clearInterval(fade);
+    }
+    bgm.volume = vol;
+  }, 50);
+});
+
