@@ -109,8 +109,7 @@ slider.addEventListener("input", () => {
   bgm.volume = slider.value;
 });
 
-// fade in audio on page load
-window.addEventListener("DOMContentLoaded", () => {
+function fadeInMusic() {
   bgm.volume = 0;
   const targetVolume = parseFloat(slider.value);
   let vol = 0;
@@ -123,8 +122,11 @@ window.addEventListener("DOMContentLoaded", () => {
     bgm.volume = vol;
   }, 50);
 
-  // now play the audio (within the same block!)
   bgm.play().catch(e => {
     console.warn("autoplay failed (probably blocked):", e);
   });
-});
+}
+
+// wait for first user click/touch to play
+window.addEventListener("click", fadeInMusic, { once: true });
+
