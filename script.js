@@ -124,3 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }, 50);
 });
 
+bgm.play().catch(e => {
+    console.warn("autoplay failed (probably blocked):", e);
+  });
+});
