@@ -122,9 +122,9 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     bgm.volume = vol;
   }, 50);
-});
 
-bgm.play().catch(e => {
+  // now play the audio (within the same block!)
+  bgm.play().catch(e => {
     console.warn("autoplay failed (probably blocked):", e);
   });
 });
