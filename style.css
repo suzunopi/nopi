@@ -350,11 +350,11 @@ button:hover {
 /* button to toggle the player */
 #bgm-toggle {
   position: fixed;
-  bottom: 24px;
+  bottom: 30px;
   left: 24px;
   background: none;
   border: none;
-  font-size: 12px;
+  font-size: 24px;
   cursor: pointer;
   z-index: 10000;
   color: #FFD700;
